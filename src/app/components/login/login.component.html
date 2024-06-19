@@ -1,0 +1,31 @@
+<main>
+  <div class="container">
+    <a class="text-decoration-none" href="index.html">🏠</a>
+    <div class="row justify-content-center">
+      <div class="form-container col-md-6">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+            <div class="error" id="emailError"></div>
+            <!-- <div class="invalid-feedback">
+        Please provide a valid email.
+      </div> -->
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+            <div class="error" id="passwordError"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div class="text-center mt-3">
+          <a href="register.html" class="d-block">Don't have an account? Register</a>
+          <a href="recover.html">Recover Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

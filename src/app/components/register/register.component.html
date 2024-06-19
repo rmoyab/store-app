@@ -1,0 +1,61 @@
+<main>
+  <div class="container">
+    <a class="text-decoration-none" href="index.html">🏠</a>
+
+
+    <div class="row justify-content-center">
+      <div class="form-container col-md-6 mb-4">
+        <form id="registrationForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+            <div class="error" id="nameError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username">
+            <div class="error" id="usernameError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email-register" name="email">
+            <div class="error" id="emailError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <div class="error" id="passwordError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+            <div class="error" id="confirmPasswordError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="birthdate" class="form-label">Birthdate</label>
+            <input type="date" class="form-control" id="birthdate" name="birthdate">
+            <div class="error" id="birthdateError"></div>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Admin (Optional)
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address (Optional)</label>
+            <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="button" class="btn btn-secondary" onclick="resetForm()">Reset</button>
+        </form>
+        <div class="text-center mt-3">
+          <a href="login.html">Do you already have an account? Login</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
