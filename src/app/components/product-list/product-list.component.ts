@@ -1,12 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Category, Product } from '../../models/models';
 import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })
@@ -47,5 +47,9 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['/product'], {
       queryParams: { id: productId },
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
   }
 }

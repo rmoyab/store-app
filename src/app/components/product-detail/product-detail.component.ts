@@ -1,21 +1,26 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Category, Product } from '../../models/models';
-import { ActivatedRoute } from '@angular/router';
-import { data } from '../../../data/products.json';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Product } from '../../models/models';
 import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
 export class ProductDetailComponent implements OnInit {
+  pageTitle: string = 'Details for Product:';
+
   productId?: number;
-  product?: Product;
+  product?: Product | undefined;
 
   route = inject(ActivatedRoute);
+  router = inject(Router);
+  location = inject(Location);
 
   constructor(private ProductService: ProductService) {}
 
@@ -37,5 +42,9 @@ export class ProductDetailComponent implements OnInit {
         }
       );
     }
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

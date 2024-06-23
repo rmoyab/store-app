@@ -71,6 +71,11 @@ footer {
   margin-top: 20px;
 }
 
+.banner-image,
+.game-image {
+  animation: fadeIn 1s;
+}
+
 .category-card,
 .game-card,
 .game-detail-card {

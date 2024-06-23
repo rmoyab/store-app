@@ -2,28 +2,28 @@
   <div class="container">
     <div class="links-back">
       <div class="category-back">
-        <!-- <a class="text-decoration-none" href="category.html?name=Strategy Games">⬅️</a> -->
+        <a class="text-decoration-none link-back" (click)="goBack()">⬅️</a>
       </div>
       <div class="home-back">
-        <!-- <a class="text-decoration-none" href="index.html">🏠</a> -->
+        <a class="text-decoration-none" routerLink="/">🏠</a>
       </div>
     </div>
     <div id="game">
       <div classname="row">
         <div classname="col-md-8">
           <div class="game-detail-card">
-
             <div class="row">
+              @if (product){
               <div class="col-lg-6">
-                <img class="game-detail-image" src="{{product?.image}}" alt="{{product?.name}}">
+                <img class="game-detail-image" src="{{product.image}}" alt="{{product.name}}">
               </div>
-
               <div class="col-lg-6">
-                <h2 class="game-detail-title">{{product?.name}}</h2>
-                <p class="game-detail-description">{{product?.description}}</p>
-                <p class="game-detail-price">{{product?.price}} USD</p>
-                <p class="game-detail-discount">{{product?.discount}}%</p>
+                <h2 class="game-detail-title">{{product.name}}</h2>
+                <p class="game-detail-description">{{product.description}}</p>
+                <p class="game-detail-price">{{product.price}} USD</p>
+                <p class="game-detail-discount">{{product.discount * 100}}%</p>
               </div>
+              }
             </div>
           </div>
         </div>

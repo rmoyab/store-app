@@ -1,8 +1,9 @@
 <main>
   <div class="container">
-    <a class="text-decoration-none" href="index.html">⬅️</a>
+    <a class="text-decoration-none" routerLink="/categories">⬅️</a>
     <div id="games">
       <div class="row">
+        @if (products) {
         @for(prod of products; track prod.id){
         <div class="col-lg-4 col-md-6">
           <div class="game-card">
@@ -17,9 +18,10 @@
             </h3>
             <p class="game-description">{{prod.description}}</p>
             <p class="game-detail-price">{{prod.price}} USD</p>
-            <p class="game-discount">{{prod.discount}}%</p>
+            <p class="game-discount">{{prod.discount * 100}}%</p>
           </div>
         </div>
+        }
         }
       </div>
     </div>
