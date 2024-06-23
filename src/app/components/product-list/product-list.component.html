@@ -1,1 +1,27 @@
-<p>product-list works!</p>
+<main>
+  <div class="container">
+    <a class="text-decoration-none" href="index.html">⬅️</a>
+    <div id="games">
+      <div class="row">
+        @for(prod of products; track prod.id){
+        <div class="col-lg-4 col-md-6">
+          <div class="game-card">
+            <!-- <a routerLink="product/"> -->
+            <a (click)="goToGameDetail(prod.id)">
+              <img class="game-image" src="{{prod.image}}" alt="{{prod.name}}">
+            </a>
+            <h3 class="game-title">
+              <a class="text-decoration-none">
+                {{prod.name}}
+              </a>
+            </h3>
+            <p class="game-description">{{prod.description}}</p>
+            <p class="game-detail-price">{{prod.price}} USD</p>
+            <p class="game-discount">{{prod.discount}}%</p>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</main>

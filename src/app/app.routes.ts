@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'recover', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'products/:categoryId', component: ProductListComponent },
-  { path: 'product/:productId', component: ProductDetailComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'product', component: ProductDetailComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

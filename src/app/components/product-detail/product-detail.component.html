@@ -1,6 +1,33 @@
 <main>
   <div class="container">
-    <a class="text-decoration-none" href="index.html">⬅️</a>
-    <div id="games"></div>
+    <div class="links-back">
+      <div class="category-back">
+        <!-- <a class="text-decoration-none" href="category.html?name=Strategy Games">⬅️</a> -->
+      </div>
+      <div class="home-back">
+        <!-- <a class="text-decoration-none" href="index.html">🏠</a> -->
+      </div>
+    </div>
+    <div id="game">
+      <div classname="row">
+        <div classname="col-md-8">
+          <div class="game-detail-card">
+
+            <div class="row">
+              <div class="col-lg-6">
+                <img class="game-detail-image" src="{{product?.image}}" alt="{{product?.name}}">
+              </div>
+
+              <div class="col-lg-6">
+                <h2 class="game-detail-title">{{product?.name}}</h2>
+                <p class="game-detail-description">{{product?.description}}</p>
+                <p class="game-detail-price">{{product?.price}} USD</p>
+                <p class="game-detail-discount">{{product?.discount}}%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
