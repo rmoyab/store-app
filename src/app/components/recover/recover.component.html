@@ -2,15 +2,25 @@
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form id="recoverForm">
+        <div *ngIf="message" class="alert mt-3"
+          [ngClass]="{'alert-success': messageType === 'success', 'alert-danger': messageType === 'error'}"
+          role="alert">
+          {{ message }}
+        </div>
+        <form id="recoverForm" [formGroup]="recoverForm" (submit)="submitForm()">
           <div class="mb-3">
-            <label for="inputEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter your email"
-              required>
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" formControlName="email">
+            <div
+              *ngIf="recoverForm.get('email')?.invalid && (recoverForm.get('email')?.dirty || recoverForm.get('email')?.touched)"
+              class="form-error">
+              <div *ngIf="recoverForm.get('email')?.errors?.['required']">Email is required.</div>
+              <div *ngIf="recoverForm.get('email')?.errors?.['email']">Invalid email format.</div>
+            </div>
           </div>
           <button type="submit" class="btn btn-primary">Recover Account</button>
         </form>
-        <a href="login.html" class="mt-4">Go Back to Login</a>
+        <a routerLink="/login" class="mt-4">Go Back to Login</a>
       </div>
     </div>
   </div>

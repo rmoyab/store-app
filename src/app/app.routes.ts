@@ -6,12 +6,13 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { RecoverComponent } from './components/recover/recover.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'recover', component: RegisterComponent },
+  { path: 'recover', component: RecoverComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'products', component: ProductListComponent },

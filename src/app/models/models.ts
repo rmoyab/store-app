@@ -19,3 +19,13 @@ export interface CategoryComponentData {
   category?: Category;
   products?: Product[];
 }
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  birthDate: string;
+  isAdmin: boolean;
+}
