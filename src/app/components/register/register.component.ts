@@ -9,6 +9,7 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { ageValidator } from '../../validators/age.validator';
 import { confirmPasswordValidator } from '../../validators/password.validator';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private el: ElementRef
+    private el: ElementRef,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +40,7 @@ export class RegisterComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(6),
-            Validators.pattern(/^(?=.*\d)(?=.*[A-Z]).{6,18}$/),
+            // Validators.pattern(/^(?=.*\d)(?=.*[A-Z]).{6,18}$/),
           ],
         ],
         confirmPassword: [
@@ -46,7 +48,7 @@ export class RegisterComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(6),
-            Validators.pattern(/^(?=.*\d)(?=.*[A-Z]).{6,18}$/),
+            // Validators.pattern(/^(?=.*\d)(?=.*[A-Z]).{6,18}$/),
           ],
         ],
         birthDate: ['', [Validators.required, ageValidator(14)]],
@@ -59,11 +61,14 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  submitForm() {
+  submitForm(): void {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      const { email, password, username, birthDate } = this.registerForm.value;
+      this.authService.registerUser(email, password, username, birthDate);
+      this.router.navigate(['/home']);
     } else {
-      this.registerForm.markAllAsTouched();
+      // form validation errors
+      this.markFormGroupTouched(this.registerForm);
     }
   }
 
@@ -74,6 +79,15 @@ export class RegisterComponent implements OnInit {
       confirmPassword: '',
       isAdmin: false,
       address: '',
+    });
+  }
+
+  markFormGroupTouched(formGroup: FormGroup): void {
+    Object.values(formGroup.controls).forEach((control) => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
     });
   }
 }

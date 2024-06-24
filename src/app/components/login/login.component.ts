@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private el: ElementRef
+    private el: ElementRef,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -32,11 +34,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submitForm() {
+  submitForm(): void {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      const { email, password } = this.loginForm.value;
+      this.authService.loginUser(email, password);
+      this.router.navigate(['/home']);
     } else {
-      this.loginForm.markAllAsTouched();
+      this.markFormGroupTouched(this.loginForm);
     }
+  }
+
+  markFormGroupTouched(formGroup: FormGroup): void {
+    Object.values(formGroup.controls).forEach((control) => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 }

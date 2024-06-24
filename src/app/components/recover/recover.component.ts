@@ -40,7 +40,6 @@ export class RecoverComponent implements OnInit {
 
       this.recoverForm.reset();
     } else {
-      console.log('Recover error');
       this.recoverForm.markAllAsTouched();
     }
   }

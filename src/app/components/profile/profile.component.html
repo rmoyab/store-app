@@ -3,13 +3,12 @@
     <a class="text-decoration-none" href="index.html">⬅️</a>
 
     <div>
-      <p><strong>Name:</strong> <span id="name"></span></p>
-      <p><strong>Email:</strong> <span id="email"></span></p>
-      <p><strong>Birthdate:</strong> <span id="birthdate"></span></p>
+      <p><strong>Name:</strong> <span id="name">{{currentUser.username }}</span></p>
+      <p><strong>Email:</strong> <span id="email"> {{currentUser.email }}</span></p>
+      <p><strong>Birthdate:</strong> <span id="birthdate">{{currentUser.birthDate }}</span></p>
     </div>
     <div class="">
-      <button type="button" class="btn btn-primary" onclick="editProfile()">Edit Profile</button>
-      <button type="button" id="logout-btn" class="btn btn-secondary" onclick="resetLocalStorage()">Logout</button>
+      <a routerLink="/edit-profile" class="btn btn-primary me-2">Edit Profile</a>
     </div>
   </div>
 

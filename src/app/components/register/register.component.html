@@ -5,7 +5,7 @@
       <div class="form-container col-md-6 mb-4">
         <form id="registerForm" [formGroup]="registerForm" (submit)="submitForm()">
           <div class="mb-3">
-            <label for="name" class="form-label">Username</label>
+            <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" formControlName="username">
             <div
               *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)"
@@ -82,12 +82,13 @@
             <textarea class="form-control" id="address" formControlName="address" rows="3"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+          <button type="submit" class="btn btn-primary">Register</button>
 
           <button type="button" class="btn btn-secondary ms-2" (click)="resetForm()">Reset</button>
         </form>
         <div class="text-center mt-3">
-          <a routerLink="/login">Do you already have an account? Login</a>
+          <p class="mt-3">Do you already have an account? <a href="#" routerLink="/login"
+              class="text-decoration-none">Login</a></p>
         </div>
       </div>
     </div>
