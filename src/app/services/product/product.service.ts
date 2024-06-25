@@ -3,6 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map, catchError, throwError } from 'rxjs';
 import { Category, Product } from '../../models/models';
 
+/**
+ * Service responsible for handling product-related operations.
+ */
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,6 +14,11 @@ export class ProductService {
   private dataUrl = 'http://localhost:4200/data/products.json';
 
   constructor(private http: HttpClient) {}
+
+  /**
+   * Retrieves categories from the data source.
+   * @returns An Observable array of Category objects.
+   */
 
   getCategories(): Observable<any[]> {
     return this.http
@@ -19,6 +28,12 @@ export class ProductService {
         catchError(this.handleError)
       );
   }
+
+  /**
+   * Retrieves products belonging to a specific category.
+   * @param categoryId The ID of the category for which products are fetched.
+   * @returns An Observable array of Product objects.
+   */
 
   getProductsByCategory(categoryId: number): Observable<any[]> {
     return this.http
@@ -33,6 +48,12 @@ export class ProductService {
         catchError(this.handleError)
       );
   }
+
+  /**
+   * Retrieves a product by its ID.
+   * @param productId The ID of the product to fetch.
+   * @returns An Observable of the Product object if found, otherwise undefined.
+   */
 
   getProductById(productId: number): Observable<Product | undefined> {
     return this.http
@@ -51,6 +72,12 @@ export class ProductService {
         catchError(this.handleError)
       );
   }
+
+  /**
+   * Handles HTTP errors.
+   * @param error The error object received from the HTTP call.
+   * @returns An Observable that emits the error.
+   */
 
   private handleError(error: any) {
     console.error('An error occurred:', error);
