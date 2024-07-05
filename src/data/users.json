@@ -2,39 +2,35 @@
   "data": {
     "users": [
       {
-        "id": "1",
-        "name": "John Doe",
+        "id": 1,
         "username": "john_doe",
         "email": "john@example.com",
         "password": "Password123",
-        "birthdate": "1990-01-01",
+        "birthDate": "1990-01-01",
         "isAdmin": true
       },
       {
-        "id": "2",
-        "name": "Jane Smith",
+        "id": 2,
         "username": "jane_smith",
         "email": "jane@example.com",
         "password": "abc123",
-        "birthdate": "1995-05-15",
+        "birthDate": "1995-05-15",
         "isAdmin": false
       },
       {
-        "id": "3",
-        "name": "Alice Johnson",
+        "id": 3,
         "username": "alice_j",
         "email": "alice@example.com",
         "password": "p@ssw0rd",
-        "birthdate": "1988-11-30",
+        "birthDate": "1988-11-30",
         "isAdmin": false
       },
       {
-        "id": "4",
-        "name": "Bob Brown",
+        "id": 4,
         "username": "bob_brown",
         "email": "bob@example.com",
         "password": "Passw0rd",
-        "birthdate": "1982-07-20",
+        "birthDate": "1982-07-20",
         "isAdmin": false
       }
     ]

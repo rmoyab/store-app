@@ -1,0 +1,130 @@
+{
+  "data": {
+    "categories": [
+      {
+        "id": 1,
+        "name": "Action",
+        "image": "../assets/images/action.webp",
+        "games": [
+          {
+            "id": 1,
+            "name": "Elder Ring",
+            "image": "../assets/images/elder.webp",
+            "description": "In the Lands Between, ruled by Queen Marika the Eternal, the Elden Ring, source of the Erdtree, has shattered. Marika's demigod offspring claimed its shards, known as the Great Runes, triggering The Shattering—a war of newfound strength, abandonment, and exile. Now, grace guides the Tarnished, once spurned, to reclaim their lost honor and become the Elden Lord.",
+            "price": 59.99,
+            "discount": 0.15
+          },
+          {
+            "id": 2,
+            "name": "God of War Ragnarök",
+            "image": "../assets/images/god4.webp",
+            "description": "From Santa Monica Studio comes the sequel to the critically acclaimed God of War (2018). Fimbulwinter grips the Nine Realms as Kratos and Atreus embark on a perilous journey. They traverse stunning mythical landscapes, confronting Norse gods and monsters, while Asgardian forces prepare for an apocalyptic battle prophesied to end the world. With Ragnarök looming, Kratos and Atreus face the ultimate choice: their own safety or the fate of the realms.",
+            "price": 69.99,
+            "discount": 0.1
+          },
+          {
+            "id": 3,
+            "name": "Marvel's Spider-Man 2",
+            "image": "../assets/images/spider2.avif",
+            "description": "Spider-Men Peter Parker and Miles Morales reunite in the highly acclaimed Marvel’s Spider-Man franchise for PS5. Players swing, jump, and utilize new Web Wings to traverse Marvel’s New York, seamlessly switching between Peter Parker and Miles Morales to uncover diverse stories and wield epic new powers. As the menacing villain Venom threatens their lives, their beloved city, and their loved ones, Peter and Miles must unite to confront this formidable threat.",
+            "price": 59.99,
+            "discount": 0.05
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Adventure",
+        "image": "../assets/images/adventure.webp",
+        "games": [
+          {
+            "id": 4,
+            "name": "Rise of the Ronin",
+            "image": "../assets/images/rise.webp",
+            "description": "Embark on an epic journey through war-torn 19th-century Japan in this combat-focused open-world action RPG by Team NINJA, creators of Nioh and NINJA GAIDEN. Set in 1863, Japan faces turmoil as the Tokugawa Shogunate's three-century reign is challenged by the arrival of Western Black Ships. Amid war, disease, and political upheaval, a nameless warrior emerges to shape Japan's destiny, navigating a landscape where every decision carries the weight of the nation.",
+            "price": 69.99,
+            "discount": 0.1
+          },
+          {
+            "id": 5,
+            "name": "Stellar Blade",
+            "image": "../assets/images/stellar.avif",
+            "description": "Experience Stellar Blade, a gripping story-driven action adventure exclusive to PlayStation®5, where the fate of humanity hangs in the balance. Earth, ravaged by enigmatic creatures, lies abandoned as the remnants of humanity seek refuge in a distant Colony in space. EVE, a member of the 7th Airborne Squad, journeys from the Colony to Earth with a mission: to reclaim humanity's home from the malevolent Naytiba. As EVE confronts these adversaries and unravels the mysteries of Earth's ruins, she discovers that her mission is fraught with complexities and revelations that challenge everything she knows.",
+            "price": 69.99,
+            "discount": 0.05
+          },
+          {
+            "id": 6,
+            "name": "Horizon Forbidden West",
+            "image": "../assets/images/horizon.avif",
+            "description": "Return to the far-future, post-apocalyptic world of Horizon in an epic adventure where Aloy must confront a dying Earth plagued by vicious storms, unstoppable blight, and fearsome new machines. As humanity faces extinction once more, Aloy embarks on a quest to uncover the mysteries behind these threats and restore balance to the world. Alongside old allies and amidst warring factions, she delves into the ancient past to confront an undefeatable new enemy and forge the future of life on Earth.",
+            "price": 49.99,
+            "discount": 0.05
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Horror",
+        "image": "../assets/images/horror.webp",
+        "games": [
+          {
+            "id": 7,
+            "name": "Resident Evil 4 Remake",
+            "image": "../assets/images/resident4.avif",
+            "description": "Experience the complete reimagining of Resident Evil 4, the legendary survival horror game from 2005, now fully updated for the current generation. Six years after surviving Raccoon City, Leon Kennedy is sent to a remote European village to investigate the disappearance of the US president's daughter. What unfolds is a harrowing encounter unlike anything he's faced before. This ground-up remake features modernized graphics, controls, and a reimagined storyline that promises to captivate both longtime fans and newcomers alike.",
+            "price": 39.99,
+            "discount": 0.05
+          },
+          {
+            "id": 8,
+            "name": "Alan Wake 2",
+            "image": "../assets/images/alan2.avif",
+            "description": "A psychological survival horror tale by the creators of Control. Follow two protagonists, FBI agent Saga Anderson and writer Alan Wake, as they navigate parallel yet interconnected worlds: Anderson investigates ritualistic murders in Bright Falls, while Wake struggles in the Dark Place, an ominous realm shaped by his writings. Their actions in their respective realities influence each other as they combat supernatural darkness with the power of light, striving to protect loved ones amidst a reality-twisting narrative of heroes and monsters.",
+            "price": 59.99,
+            "discount": 0.1
+          },
+          {
+            "id": 9,
+            "name": "Dead Space",
+            "image": "../assets/images/dead.webp",
+            "description": "Join Isaac Clarke, an ordinary engineer aboard the USG Ishimura, a colossal mining ship. Tasked with repairs, Isaac finds himself amidst a massacre: the crew slaughtered, his partner Nicole missing. Armed only with his tools, Isaac must unravel the ship's horrors and locate Nicole. Encountering Necromorphs, grotesque foes born from the dead, Isaac fights for survival and sanity in a chilling race against nightmarish odds.",
+            "price": 69.99,
+            "discount": 0.05
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Fighting",
+        "image": "../assets/images/figthing.webp",
+        "games": [
+          {
+            "id": 10,
+            "name": "Tekken 8",
+            "image": "../assets/images/tekken8.avif",
+            "description": "Dive into Tekken 8, the latest installment in Bandai Namco's renowned fighting series. Powered by Unreal Engine 5, it sets a new standard with stunning visuals and immersive gameplay on next-gen consoles. Experience intense combat and detailed characters in a narrative following Jin Kazama and Kazuya Mishima's epic clash, unfolding after the events of Tekken 7's climactic battle with Heihachi Mishima.",
+            "price": 69.99,
+            "discount": 0.15
+          },
+          {
+            "id": 11,
+            "name": "Street Fighter 6",
+            "image": "../assets/images/streetfighter6.jpg",
+            "description": "Prepare for Street Fighter 6, the latest evolution in Capcom's iconic series. With innovative gameplay features and enhanced visuals powered by the RE ENGINE, immerse yourself in three engaging modes: Fighting Ground, World Tour, and Battle Hub. Embark on your journey to become a World Warrior in this definitive fighting experience.",
+            "price": 59.99,
+            "discount": 0.1
+          },
+          {
+            "id": 12,
+            "name": "Mortal Kombat 1",
+            "image": "../assets/images/mortalkombat1.avif",
+            "description": "Experience the rebirth of Mortal Kombat with NetherRealm Studios' bold new direction. Following the events of Mortal Kombat 11, Fire God Liu Kang initiates a New Era for Earthrealm, promising peace but ushering in unforeseen challenges. Explore an immersive story mode redefining iconic characters and relationships, alongside new game modes and a revitalized combat system featuring brutal Fatal Blows and Fatalities.",
+            "price": 69.99,
+            "discount": 0.05
+          }
+        ]
+      }
+    ]
+  }
+}
