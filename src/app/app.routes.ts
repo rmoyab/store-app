@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RecoverComponent } from './components/recover/recover.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { UserAdminComponent } from './components/user-admin/user-admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: 'product', component: ProductDetailComponent },
   { path: 'edit-profile', component: EditProfileComponent },
+  { path: 'admin', component: UserAdminComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
