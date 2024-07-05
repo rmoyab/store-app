@@ -9,6 +9,9 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ageValidator } from '../../validators/age.validator';
+import { UserService } from '../../services/user/user.service';
+import { User } from '../../models/models';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -24,6 +27,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private userService: UserService,
+    private storageService: StorageService,
     private router: Router
   ) {
     this.editForm = this.formBuilder.group({
@@ -49,8 +54,39 @@ export class EditProfileComponent implements OnInit {
   onSubmit(): void {
     if (this.editForm.valid) {
       const updatedProfile = this.editForm.value;
-      this.authService.updateProfile(updatedProfile);
-      this.router.navigate(['/profile']);
+
+      this.userService.getUserById(this.user.id).subscribe(
+        (user: User | undefined) => {
+          if (user) {
+            user.username = updatedProfile.username;
+            user.email = updatedProfile.email;
+            user.birthDate = updatedProfile.birthDate;
+
+            this.userService.updateUser(user).subscribe(
+              () => {
+                console.log('User updated successfully!');
+                const { id, username, email, birthDate, isAdmin } = user;
+                this.storageService.setItem('currentUser', {
+                  id,
+                  username,
+                  email,
+                  birthDate,
+                  isAdmin,
+                });
+                this.router.navigate(['/profile']);
+              },
+              (error) => {
+                console.error('Error updating user:', error);
+              }
+            );
+          } else {
+            console.error(`User with ID ${this.user.id} not found.`);
+          }
+        },
+        (error) => {
+          console.error('Error getting user by ID:', error);
+        }
+      );
     }
   }
 }

@@ -19,6 +19,11 @@
         <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" routerLink="/profile">Account</a>
         </li>
+
+        <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
+          <a class="nav-link" routerLink="/admin">Admin</a>
+        </li>
+
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item" *ngIf="!isLoggedIn()">

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, catchError, throwError } from 'rxjs';
 import { Category, Product } from '../../models/models';
+import { environment } from '../../../environments/environment.development';
 
 /**
  * Service responsible for handling product-related operations.
@@ -11,7 +12,16 @@ import { Category, Product } from '../../models/models';
   providedIn: 'root',
 })
 export class ProductService {
-  private dataUrl = 'http://localhost:4200/data/products.json';
+  // private dataUrl = 'http://localhost:4200/data/games.json';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${environment.tokenFB}`,
+    }),
+  };
+
+  private dataUrl = `${environment.urlFB}${environment.appName}games.json?alt=media`;
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +34,7 @@ export class ProductService {
     return this.http
       .get<{ data: { categories: Category[] } }>(this.dataUrl)
       .pipe(
-        map((response) => response.data.categories), // Access categories array
+        map((response) => response.data.categories),
         catchError(this.handleError)
       );
   }

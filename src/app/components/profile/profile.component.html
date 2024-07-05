@@ -2,14 +2,20 @@
   <div class="container">
     <a class="text-decoration-none" href="index.html">⬅️</a>
 
-    <div>
-      <p><strong>Name:</strong> <span id="name">{{currentUser.username }}</span></p>
-      <p><strong>Email:</strong> <span id="email"> {{currentUser.email }}</span></p>
-      <p><strong>Birthdate:</strong> <span id="birthdate">{{currentUser.birthDate }}</span></p>
-    </div>
-    <div class="">
-      <a routerLink="/edit-profile" class="btn btn-primary me-2">Edit Profile</a>
+    <div class="card mt-4 p-3">
+      <h2>User Profile</h2>
+      <hr>
+
+      <div>
+        <p><strong>Username:</strong> <span id="name"> {{ currentUser.username }}</span></p>
+        <p><strong>Email:</strong> <span id="email"> {{ currentUser.email }}</span></p>
+        <p><strong>Birthdate:</strong> <span id="birthdate"> {{ currentUser.birthDate }}</span></p>
+      </div>
+
+      <div class="mt-3">
+        <a routerLink="/edit-profile" class="btn btn-primary me-2">Edit Profile</a>
+        <!-- <button class="btn btn-danger">Delete Account</button> -->
+      </div>
     </div>
   </div>
-
 </main>

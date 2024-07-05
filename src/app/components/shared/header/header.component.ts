@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
+import { StorageService } from '../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,10 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   @Input() pageTitle: string = 'Welcome, to Dice Heaven!';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private storageService: StorageService
+  ) {}
 
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
@@ -21,6 +25,10 @@ export class HeaderComponent {
 
   getCurrentUser(): any {
     return this.authService.getCurrentUser();
+  }
+
+  isAdmin(): boolean {
+    return this.storageService.getItem('currentUser').isAdmin;
   }
 
   logout() {

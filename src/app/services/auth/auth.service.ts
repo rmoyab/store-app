@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '../storage/storage.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user/user.service';
+import { User } from '../../models/models';
+import { is } from 'date-fns/locale';
+import { map } from 'rxjs';
 
 /**
  * @description
@@ -11,7 +15,13 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private storageService: StorageService, private router: Router) {}
+  private currentUser: User | null = null;
+
+  constructor(
+    private storageService: StorageService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   /**
    * @description
@@ -26,13 +36,30 @@ export class AuthService {
     email: string,
     password: string,
     username: string,
-    birthDate: string
+    birthDate: string,
+    isAdmin: boolean
   ): void {
-    const users = this.getUsers();
-    const newUser = { email, password, username, birthDate };
-    users.push(newUser);
-    this.storageService.setItem('users', users);
-    this.loginUser(email, password);
+    this.userService.getUsers().subscribe(
+      (users: User[]) => {
+        const id = this.generateUniqueId(users);
+        const newUser = { id, email, password, username, birthDate, isAdmin };
+        users.push(newUser);
+        const usersForSave = { data: { users } };
+        this.userService.addUser(usersForSave).subscribe(
+          () => {
+            this.loginUser(email, password);
+          },
+          (error) => {
+            console.error('Error at register:', error);
+          }
+        );
+
+        // this.storageService.setItem('users', users);
+      },
+      (error) => {
+        console.error('Error getting users:', error);
+      }
+    );
   }
 
   /**
@@ -44,14 +71,30 @@ export class AuthService {
    */
 
   loginUser(email: string, password: string): boolean {
-    const users = this.getUsers();
-    const user = users.find(
-      (u) => u.email === email && u.password === password
+    this.userService.getUsers().subscribe(
+      (users: User[]) => {
+        const user = users.find(
+          (u) => u.email === email && u.password === password
+        );
+        if (user) {
+          const { id, username, email, birthDate, isAdmin } = user;
+          this.storageService.setItem('currentUser', {
+            id,
+            username,
+            email,
+            birthDate,
+            isAdmin,
+          });
+          return true;
+        } else {
+          return false;
+        }
+      },
+      (error) => {
+        console.error('Error fetching users', error);
+        return false;
+      }
     );
-    if (user) {
-      this.storageService.setItem('currentUser', user);
-      return true;
-    }
     return false;
   }
 
@@ -71,22 +114,10 @@ export class AuthService {
    * @returns The current user object from storage.
    */
 
-  getCurrentUser(): any {
-    return this.storageService.getItem('currentUser');
-  }
-
-  /**
-   * @description
-   * Updates the current user's profile with new information.
-   * @param updatedProfile The updated profile information to be applied.
-   */
-
-  updateProfile(updatedProfile: any): void {
-    const currentUser = this.getCurrentUser();
-    if (currentUser) {
-      const updatedUser = { ...currentUser, ...updatedProfile };
-      this.storageService.setItem('currentUser', updatedUser);
-    }
+  getCurrentUser(): User | null {
+    return (
+      this.currentUser || this.storageService.getItem('currentUser') || null
+    );
   }
 
   /**
@@ -107,5 +138,14 @@ export class AuthService {
 
   private getUsers(): any[] {
     return this.storageService.getItem('users') || [];
+  }
+
+  private generateUniqueId(users: User[]): number {
+    if (users.length > 0) {
+      const maxId = Math.max(...users.map((user) => user.id));
+      return maxId + 1;
+    } else {
+      return 1;
+    }
   }
 }

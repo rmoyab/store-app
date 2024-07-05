@@ -1,0 +1,34 @@
+<div *ngIf="isAdmin()" class="container mt-4">
+  <!-- <h2>User List</h2> -->
+  <div class="card mt-4 p-3">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <ng-container *ngIf="user.id !== currentUser?.id">
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                <!-- <button class="btn btn-primary" (click)="editUser(user)">Edit</button> -->
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isAdmin()" class="container mt-4">
+  <div class="alert alert-danger">
+    Access denied. Only admins can view and manage users.
+  </div>
+</div>

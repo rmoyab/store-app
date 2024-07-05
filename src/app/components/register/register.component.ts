@@ -63,8 +63,20 @@ export class RegisterComponent implements OnInit {
 
   submitForm(): void {
     if (this.registerForm.valid) {
-      const { email, password, username, birthDate } = this.registerForm.value;
-      this.authService.registerUser(email, password, username, birthDate);
+      const {
+        email,
+        password,
+        username,
+        birthDate,
+        isAdmin = false,
+      } = this.registerForm.value;
+      this.authService.registerUser(
+        email,
+        password,
+        username,
+        birthDate,
+        isAdmin
+      );
       this.router.navigate(['/home']);
     } else {
       // form validation errors
