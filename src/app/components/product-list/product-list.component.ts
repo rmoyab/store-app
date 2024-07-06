@@ -2,11 +2,14 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Category, Product } from '../../models/models';
 import { ProductService } from '../../services/product/product.service';
+import { CartService } from '../../services/cart/cart.service';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })
@@ -17,7 +20,11 @@ export class ProductListComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
 
-  constructor(private ProductService: ProductService) {}
+  constructor(
+    private ProductService: ProductService,
+    private cartService: CartService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -47,6 +54,15 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['/product'], {
       queryParams: { id: productId },
     });
+  }
+
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product);
+    alert('Product added to cart!');
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 
   goBack() {

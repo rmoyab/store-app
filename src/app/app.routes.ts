@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RecoverComponent } from './components/recover/recover.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserAdminComponent } from './components/user-admin/user-admin.component';
+import { CartComponent } from './components/cart/cart.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: 'product', component: ProductDetailComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'admin', component: UserAdminComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

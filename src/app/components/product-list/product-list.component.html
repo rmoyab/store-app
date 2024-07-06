@@ -19,6 +19,8 @@
             <p class="game-description">{{prod.description}}</p>
             <p class="game-detail-price">{{prod.price}} USD</p>
             <p class="game-discount">{{prod.discount * 100}}%</p>
+            <button (click)="addToCart(prod)" class="btn btn-primary" *ngIf="isLoggedIn()">Add to Cart</button>
+            <!-- <button class="btn btn-primary">Add to Cart</button> -->
           </div>
         </div>
         }
