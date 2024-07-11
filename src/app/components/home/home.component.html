@@ -1,16 +1,19 @@
 <main>
-  <div class="container mt-4">
-    <div class="jumbotron">
-      <img src="assets/images/banner.jpg" class="img-fluid mb-3 banner-image" alt="Banner Image">
-      <h1 class="display-4">Welcome to Dice Heaven!</h1>
+  <div class="container">
+    <!-- <div class="jumbotron">
+      <div class="img-container">
+        <img src="assets/images/banner.jpg" class="img-fluid mb-3 banner-image" alt="Banner Image">
+      </div>
+      <h1 class="display-4 home-title">Welcome to Savage Games!</h1>
       <p class="lead">Explore a world of thrilling games.</p>
-      <hr class="my-4">
-      <p>Get ready for an adventure filled with excitement and fun.</p>
-      <a class="btn btn-primary btn-lg mt-3" routerLink="/categories" role="button">Explore Games</a>
-    </div>
+
+      <a class="btn btn-primary btn-lg mt-2" routerLink="/categories" role="button">
+        Explore Games by Category <fa-icon [icon]="faGamepad"></fa-icon>
+      </a>
+    </div> -->
   </div>
 
-  <div class="container mt-4">
+  <!-- <div class="container mt-4">
     <div class="row">
       <div class="col-md-4">
         <img src="assets/images/game1.jpg" class="game-image" alt="Game 1">
@@ -22,12 +25,46 @@
         <img src="assets/images/game3.jpg" class="game-image" alt="Game 3">
       </div>
     </div>
+  </div> -->
+
+
+  <div class="container">
+    <h2 class="home-title">New Games</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      @if (products) {
+      @for(prod of products; track prod.id){
+      <div class="col-lg-3 col-md-6">
+        <div class="game-card h-100">
+          <!-- <a routerLink="product/"> -->
+          <a (click)="goToGameDetail(prod.id)">
+            <img class="game-image" src="{{prod.image}}" alt="{{prod.name}}">
+          </a>
+          <h3 class="game-title fs-4">
+            {{prod.name}}
+          </h3>
+          <!-- <p class="game-description">{{prod.description}}</p> -->
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="game-detail-price">${{prod.price}}</p>
+            <p class="game-discount">{{prod.discount * 100}}%</p>
+          </div>
+          <div class="d-flex justify-content-end align-items-end h-100">
+            <button (click)="addToCart(prod)" class="btn btn-primary h-auto" *ngIf="isLoggedIn()">
+              Add to Cart <fa-icon [icon]="faShoppingBasket"></fa-icon>
+            </button>
+            <!-- <button class="btn btn-primary">Add to Cart</button> -->
+          </div>
+        </div>
+      </div>
+      }
+      }
+    </div>
   </div>
 
   <div class="container my-4">
     <div class="row">
       <div class="col-md-6">
-        <h2>About Us</h2>
+        <h2 class="home-title">About Us</h2>
         <p>Welcome to Dice Heaven, your ultimate destination for all things gaming! We are passionate gamers dedicated
           to providing you with the best gaming experience possible.</p>
         <p>At Dice Heaven, we offer a wide range of games for all ages and interests. Whether you're a hardcore gamer
@@ -39,7 +76,7 @@
         <p>Thank you for choosing Dice Heaven. Let's embark on an epic gaming journe
       </div>
       <div class="col-md-6">
-        <h2>Contact Us</h2>
+        <h2 class="home-title">Contact Us</h2>
         <p>Email: infodiceheaven.com</p>
         <p>Phone: +123 456 7890</p>
       </div>

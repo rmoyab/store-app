@@ -2,14 +2,15 @@
   <div class="container">
     <a class="text-decoration-none" routerLink="/">⬅️</a>
     <div id="categories">
+      <h2 class="home-title">Game Categories</h2>
       <div class="row">
         @for(cat of categories; track cat.id){
-        <div class="col-lg-4 col-md-6">
-          <div class="category-card">
+        <div class="col-lg-3 col-md-6">
+          <div class="category-card" (click)="goToGames(cat.id)">
             <!-- <a routerLink="products/{{cat.id}}"> -->
-            <a (click)="goToGames(cat.id)">
+            <div>
               <img class="category-image" src="{{cat.image}}" alt="{{cat.name}}">
-            </a>
+            </div>
             <h2 class="category-title">{{cat.name}}</h2>
           </div>
         </div>

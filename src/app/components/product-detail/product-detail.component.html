@@ -10,6 +10,7 @@
     </div>
     <div id="game">
       <div classname="row">
+        <h2 class="home-title">Game Details</h2>
         <div classname="col-md-8">
           <div class="game-detail-card">
             <div class="row">
@@ -20,8 +21,16 @@
               <div class="col-lg-6">
                 <h2 class="game-detail-title">{{product.name}}</h2>
                 <p class="game-detail-description">{{product.description}}</p>
-                <p class="game-detail-price">{{product.price}} USD</p>
-                <p class="game-detail-discount">{{product.discount * 100}}%</p>
+                <div class="d-flex justify-content-between">
+                  <p class="game-detail-price">${{product.price}}</p>
+                  <p class="game-discount">{{product.discount * 100}}%</p>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button (click)="addToCart(product)" class="btn btn-primary" *ngIf="isLoggedIn()">
+                    Add to Cart <fa-icon [icon]="faShoppingBasket"></fa-icon>
+                  </button>
+                  <!-- <button class="btn btn-primary">Add to Cart</button> -->
+                </div>
               </div>
               }
             </div>

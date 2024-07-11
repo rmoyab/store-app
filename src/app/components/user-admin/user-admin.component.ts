@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
-import { User } from '../../models/models';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+import { UserService } from '../../services/user/user.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { StorageService } from '../../services/storage/storage.service';
+
+import { User } from '../../models/models';
 
 @Component({
   selector: 'app-user-admin',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './user-admin.component.html',
   styleUrl: './user-admin.component.scss',
 })
 export class UserAdminComponent {
   users: User[] = [];
   currentUser: User | null = null;
+  faTrash = faTrash;
 
   constructor(
     private userService: UserService,

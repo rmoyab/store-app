@@ -1,21 +1,26 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Category, Product } from '../../models/models';
+import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+
 import { ProductService } from '../../services/product/product.service';
 import { CartService } from '../../services/cart/cart.service';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
+
+import { Product } from '../../models/models';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FontAwesomeModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
   categoryId?: number;
+  faShoppingBasket = faShoppingBasket;
 
   route = inject(ActivatedRoute);
   router = inject(Router);
