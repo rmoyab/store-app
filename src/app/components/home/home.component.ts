@@ -7,12 +7,11 @@ import { ProductService } from '../../services/product/product.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { CartService } from '../../services/cart/cart.service';
 import { CommonModule } from '@angular/common';
-import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, FontAwesomeModule, CommonModule, TruncatePipe],
+  imports: [RouterLink, FontAwesomeModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
