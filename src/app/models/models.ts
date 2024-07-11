@@ -34,3 +34,18 @@ export interface Storage {
   setItem(key: string, value: string): void;
   removeItem(key: string): void;
 }
+
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  discount: number;
+  quantity: number;
+  image: string;
+}
+
+export interface ShippingOption {
+  label: string;
+  description: string;
+  cost: number;
+}

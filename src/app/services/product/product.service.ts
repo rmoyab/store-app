@@ -83,6 +83,21 @@ export class ProductService {
       );
   }
 
+  getProducts(): Observable<any[]> {
+    return this.http
+      .get<{ data: { categories: Category[] } }>(this.dataUrl)
+      .pipe(
+        map((response) => {
+          let products: Product[] = [];
+          response.data.categories.forEach((category) => {
+            products = products.concat(category.games);
+          });
+          return products;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   /**
    * Handles HTTP errors.
    * @param error The error object received from the HTTP call.
