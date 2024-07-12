@@ -28,7 +28,7 @@ describe('ProductService', () => {
   //   expect(service).toBeTruthy();
   // });
 
-  it('should return categories', () => {
+  it('>>>>>>>>>>>>>>>>>> should return categories', () => {
     const mockCategories: Category[] = [
       { id: 1, name: 'Category 1', image: 'image1.jpg', games: [] },
       { id: 2, name: 'Category 2', image: 'image2.jpg', games: [] },
@@ -43,7 +43,7 @@ describe('ProductService', () => {
     req.flush({ data: { categories: mockCategories } });
   });
 
-  it('should return products for a category', () => {
+  it('>>>>>>>>>>>>>>>>>> should return products for a category', () => {
     const categoryId = 1;
     const mockCategory: Category = {
       id: categoryId,
@@ -78,7 +78,7 @@ describe('ProductService', () => {
     req.flush({ data: { categories: [mockCategory] } });
   });
 
-  it('should return a product by ID', () => {
+  it('>>>>>>>>>>>>>>>>>> should return a product by ID', () => {
     const productId = 1;
     const mockCategory: Category = {
       id: 1,

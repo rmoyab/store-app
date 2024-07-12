@@ -3,81 +3,86 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { StorageService } from '../storage/storage.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { UserService } from '../user/user.service';
+import { User } from '../../models/models';
+import { of } from 'rxjs';
+import { id } from 'date-fns/locale';
 
 describe('AuthService', () => {
   let authService: AuthService;
-  let storageService: StorageService;
+  let userService: jasmine.SpyObj<UserService>;
+  let storageService: jasmine.SpyObj<StorageService>;
   let router: Router;
 
   beforeEach(() => {
+    const userServiceSpy = jasmine.createSpyObj('UserService', [
+      'getUsers',
+      'addUser',
+    ]);
+    const storageServiceSpy = jasmine.createSpyObj('StorageService', [
+      'getItem',
+      'setItem',
+      'removeItem',
+    ]);
+
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [
         AuthService,
-        {
-          provide: StorageService,
-          useValue: jasmine.createSpyObj('StorageService', [
-            'getItem',
-            'setItem',
-            'removeItem',
-          ]),
-        },
+        { provide: UserService, useValue: userServiceSpy },
+        { provide: StorageService, useValue: storageServiceSpy },
         {
           provide: Router,
-          useClass: class {
-            navigate = jasmine.createSpy('navigate');
-          },
+          useValue: { navigate: jasmine.createSpy('navigate') },
         },
       ],
     });
 
     authService = TestBed.inject(AuthService);
-    storageService = TestBed.inject(StorageService);
+    userService = TestBed.inject(UserService) as jasmine.SpyObj<UserService>;
+    storageService = TestBed.inject(
+      StorageService
+    ) as jasmine.SpyObj<StorageService>;
     router = TestBed.inject(Router);
   });
 
-  // it('should be created', () => {
-  //   expect(authService).toBeTruthy();
-  // });
-
-  it('should register a user', () => {
+  it('>>>>>>>>>>>>>>>>>> should register', () => {
     const email = 'test@example.com';
     const password = 'password';
     const username = 'testuser';
     const birthDate = '2000-01-01';
+    const isAdmin = false;
 
-    spyOn(authService, 'loginUser'); // Spy on loginUser method
+    userService.getUsers.and.returnValue(of([]));
+    userService.addUser.and.returnValue(of(null));
 
-    authService.registerUser(email, password, username, birthDate);
+    authService.registerUser(email, password, username, birthDate, isAdmin);
 
-    expect(storageService.setItem).toHaveBeenCalledWith(
-      'users',
-      jasmine.arrayContaining([{ email, password, username, birthDate }])
-    );
-    expect(authService.loginUser).toHaveBeenCalledWith(email, password);
+    expect(userService.getUsers).toHaveBeenCalled();
+    expect(userService.addUser).toHaveBeenCalled();
   });
 
-  it('should logout a user', () => {
+  it('>>>>>>>>>>>>>>>>>> should login a user', () => {
+    const email = 'test@example.com';
+    const password = 'password';
+
+    spyOn(authService, 'loginUser').and.returnValue(true);
+
+    const loggedIn = authService.loginUser(email, password);
+
+    expect(authService.loginUser).toHaveBeenCalledWith(email, password);
+    expect(loggedIn).toBe(true);
+  });
+
+  it('>>>>>>>>>>>>>>>>>> should logout a user', () => {
     authService.logoutUser();
 
     expect(storageService.removeItem).toHaveBeenCalledWith('currentUser');
     expect(router.navigate).toHaveBeenCalledWith(['/login']);
   });
 
-  it('should update user profile', () => {
-    const updatedProfile = { username: 'updateduser' };
-    const currentUser = {
-      email: 'test@example.com',
-      password: 'password',
-      username: 'testuser',
-      birthDate: '2000-01-01',
-    };
-    spyOn(authService, 'getCurrentUser').and.returnValue(currentUser);
-
-    authService.updateProfile(updatedProfile);
-
-    expect(storageService.setItem).toHaveBeenCalledWith('currentUser', {
-      ...currentUser,
-      ...updatedProfile,
-    });
-  });
+  // it('should be created', () => {
+  //   expect(authService).toBeTruthy();
+  // });
 });

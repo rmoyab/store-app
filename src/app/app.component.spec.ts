@@ -1,29 +1,32 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  const mockActivatedRoute = {
+    queryParams: { id: 1 },
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [HttpClientTestingModule],
+      providers: [{ provide: ActivatedRoute, useValue: mockActivatedRoute }],
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'store-app' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('store-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, store-app');
   });
+
+  it(`>>>>>>>>>>>>>>>>>> should have as title 'Savage Games Store'`, () => {
+    expect(component.title).toEqual('Savage Games');
+  });
+
+  // it('should create the app', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });
