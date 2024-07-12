@@ -9,5 +9,5 @@ import { LayoutComponent } from './components/shared/layout/layout.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'store-app';
+  title = 'Savage Games';
 }
