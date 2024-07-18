@@ -1,5 +1,4 @@
-import { faUserGear } from './../../../../../node_modules/@fortawesome/free-solid-svg-icons/faUserGear.d';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
