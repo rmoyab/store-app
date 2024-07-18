@@ -11,7 +11,9 @@
               <div class="col-8 col-lg-10">
                 <div class="row align-items-md-center">
                   <div class="col-lg-6">
-                    <img [src]="item.image" class="cart-image me-3" alt="Product Image" height="72">
+                    <a (click)="goToGameDetail(item.id)" class="item-pointer text-decoration-none">
+                      <img [src]="item.image" class="cart-image me-3" alt="Product Image" height="72">
+                    </a>
                     <div>
                       <a (click)="goToGameDetail(item.id)" class="item-pointer text-decoration-none">
                         <p class="my-0 fs-5">{{ item.name }}</p>
@@ -121,7 +123,8 @@
             <!-- <button class="btn btn-success mt-3"(click)="checkout()">Checkout</button> -->
             <div class="mt-3 d-flex flex-column">
               <a class="link-btn text-decoration-none text-end" (click)="clearCart()">Clear Cart</a>
-              <button class="btn btn-primary mt-2" (click)="checkout()">Checkout</button>
+              <button class="btn btn-primary mt-2" (click)="checkout()" data-bs-toggle="modal"
+                data-bs-target="#checkOutModal">Checkout</button>
             </div>
           </div>
         </div>
@@ -129,3 +132,25 @@
     </div>
   </div>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="checkOutModal" #modalElement tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="actionModal('close')"></button> -->
+      </div>
+      <div class="modal-body">
+        <h5>Thank you for your purchase! 😎</h5>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" (click)="actionModal('checkout')" data-bs-dismiss="modal">Continue
+          to home</button>
+      </div>
+    </div>
+  </div>
+</div>

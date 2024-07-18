@@ -1,4 +1,12 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+  AfterViewInit,
+  Renderer2,
+} from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
@@ -6,6 +14,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { ShippingOption } from '../../models/models';
+// import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'app-cart',
@@ -15,6 +24,7 @@ import { ShippingOption } from '../../models/models';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent implements OnInit {
+  @ViewChild('modalElement') modalElement!: ElementRef;
   cart: any[];
   // total: number;
   totalDiscount: number;
@@ -31,7 +41,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private renderer: Renderer2
   ) {
     this.cart = this.cartService.getCart();
     // this.total = this.cartService.getTotal();
@@ -114,9 +125,26 @@ export class CartComponent implements OnInit {
   }
 
   checkout(): void {
-    alert('Thank you for your purchase!');
-    this.cartService.clearCart();
-    this.router.navigate(['/']);
+    // const bsModal = new Modal(this.modalElement.nativeElement);
+    // bsModal.show();
+    // this.renderer.setStyle(this.modalElement.nativeElement, 'display', 'block');
+    // this.renderer.addClass(this.modalElement.nativeElement, 'show');
+    // this.cartService.clearCart();
+    // this.router.navigate(['/']);
+  }
+
+  actionModal(action: string): void {
+    if (action === 'close') {
+      this.renderer.setStyle(
+        this.modalElement.nativeElement,
+        'display',
+        'none'
+      );
+      this.renderer.removeClass(this.modalElement.nativeElement, 'show');
+    } else if (action === 'checkout') {
+      this.cartService.clearCart();
+      this.router.navigate(['/']);
+    }
   }
 
   getShippingCost(): number {

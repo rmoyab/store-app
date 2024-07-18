@@ -7,11 +7,12 @@ import { ProductService } from '../../services/product/product.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { CartService } from '../../services/cart/cart.service';
 import { CommonModule } from '@angular/common';
+import { CartModalComponent } from '../cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, FontAwesomeModule, CommonModule],
+  imports: [RouterLink, FontAwesomeModule, CommonModule, CartModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -50,7 +51,6 @@ export class HomeComponent implements OnInit {
 
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
-    alert('Product added to cart!');
   }
 
   goToGameDetail(productId: number) {

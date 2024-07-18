@@ -49,7 +49,8 @@
             <p class="game-discount">{{prod.discount * 100}}%</p>
           </div>
           <div class="d-flex justify-content-end align-items-end h-100">
-            <button (click)="addToCart(prod)" class="btn btn-primary h-auto" *ngIf="isLoggedIn()">
+            <button (click)="addToCart(prod)" class="btn btn-primary h-auto" *ngIf="isLoggedIn()" data-bs-toggle="modal"
+              data-bs-target="#cartModal">
               Add to Cart <fa-icon [icon]="faShoppingBasket"></fa-icon>
             </button>
             <!-- <button class="btn btn-primary">Add to Cart</button> -->
@@ -63,23 +64,29 @@
 
   <div class="container my-4">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-12">
         <h2 class="home-title">About Us</h2>
-        <p>Welcome to Dice Heaven, your ultimate destination for all things gaming! We are passionate gamers dedicated
-          to providing you with the best gaming experience possible.</p>
-        <p>At Dice Heaven, we offer a wide range of games for all ages and interests. Whether you're a hardcore gamer
-          looking for the latest AAA titles or a casual player in search of fun and entertaining games, we've got you
-          covered.</p>
-        <!-- <p>Our mission is to create a community where gamers can come together to discover, play, and share their love
-          for gaming. With our curated selection of games, knowledgeable staff, and commitment to customer
-          satisfaction, we strive to make Dice Heaven your go-to destination for all your gaming needs.</p> -->
-        <p>Thank you for choosing Dice Heaven. Let's embark on an epic gaming journe
+        <p>
+          Welcome to Savage Games, where gaming prowess meets untamed spirit! We are the forge where passion for gaming
+          ignites into unforgettable adventures.
+        </p>
+        <p>
+          Embrace your inner savage with our handpicked selection of games, curated for warriors like you who seek
+          exhilaration and domination in every battle. Whether you're conquering realms or achieving feats of skill,
+          Savage Games is your companion on the path to gaming glory.
+        </p>
+        <p>
+          Join our community of relentless gamers and unleash your potential. At Savage Games, victory isn't just a
+          goal—it's a way of life. Let's conquer new horizons together, where every challenge is met with fearless
+          determination and every triumph is celebrated with savage pride!
+        </p>
       </div>
-      <div class="col-md-6">
-        <h2 class="home-title">Contact Us</h2>
-        <p>Email: infodiceheaven.com</p>
+      <div class="col">
+        <h2 class="home-title mt-4">Contact Us</h2>
+        <p>Email: infosavagegames.com</p>
         <p>Phone: +123 456 7890</p>
       </div>
     </div>
   </div>
+  <app-cart-modal />
 </main>

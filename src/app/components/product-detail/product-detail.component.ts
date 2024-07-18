@@ -8,11 +8,12 @@ import { Product } from '../../models/models';
 import { ProductService } from '../../services/product/product.service';
 import { CartService } from '../../services/cart/cart.service';
 import { AuthService } from '../../services/auth/auth.service';
+import { CartModalComponent } from '../cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [RouterLink, CommonModule, FontAwesomeModule],
+  imports: [RouterLink, CommonModule, FontAwesomeModule, CartModalComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
@@ -60,7 +61,6 @@ export class ProductDetailComponent implements OnInit {
 
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
-    alert('Product added to cart!');
   }
 
   goBack() {
