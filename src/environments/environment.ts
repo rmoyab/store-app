@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  urlFB: 'https://firebasestorage.googleapis.com/v0/b/',
-  tokenFB: '',
-  appName: '',
+  urlFB: process.env.URL_FB,
+  tokenFB: process.env.TOKEN_FB,
+  appName: process.env.APP_NAME,
 };
