@@ -1,15 +1,15 @@
-# Store App
+# 🛒 Store App
 
 Store app is a web application designed for purchasing and managing video games. It provides a user-friendly interface for browsing games, adding them to cart, viewing by category, user registration, login, and administration capabilities.
 
 <img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/q17vlg25axke1tefopbx.jpg" alt="Game Store Home" width="830">
 
-## Stack
+## 📚 Stack
 
 - Angular v18: Frontend framework for building the user interface.
 - Bootstrap v5: UI toolkit for responsive web design.
 
-## Features
+## ⚡️ Features
 
 - Browse and Purchase Games: Explore a wide selection of games and add them to your cart.
 - View by Category: Filter games by categories such as action, adventure, Horror, etc.
@@ -24,7 +24,13 @@ Store app is a web application designed for purchasing and managing video games.
 
 <img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/f4tq7n1ebpfivxbneeif.jpg" alt="Game Store Cart" width="830">
 
-## Installation
+## 👀 Demo
+
+Check out the live demo:
+
+👉 [Live Demo](https://savagegames.netlify.app)
+
+## ⚙️ Installation
 
 To use this project locally, follow these steps:
 
@@ -33,7 +39,7 @@ To use this project locally, follow these steps:
 3. Run `yarn start` or `ng serve`
 4. Navigate to http://localhost:4200/ in your web browser.
 
-## Usage
+## 💻 Usage
 
 Here's how you can use this project:
 
