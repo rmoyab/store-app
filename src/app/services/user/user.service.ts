@@ -3,14 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, catchError, throwError, switchMap } from 'rxjs';
 
 import { User } from '../../models/models';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  // private dataUrl = 'http://localhost:4200/data/users.json';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

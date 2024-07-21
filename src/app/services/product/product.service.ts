@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, catchError, throwError } from 'rxjs';
 import { Category, Product } from '../../models/models';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 /**
  * Service responsible for handling product-related operations.
@@ -12,8 +12,6 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root',
 })
 export class ProductService {
-  // private dataUrl = 'http://localhost:4200/data/games.json';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

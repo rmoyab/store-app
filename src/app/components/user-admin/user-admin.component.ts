@@ -70,6 +70,10 @@ export class UserAdminComponent {
   }
 
   isAdmin(): boolean {
+    if (this.storageService.getItem('currentUser') === null) {
+      return false;
+    }
+
     return this.storageService.getItem('currentUser').isAdmin;
   }
 

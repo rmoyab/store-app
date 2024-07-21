@@ -1,5 +1,6 @@
 export const environment = {
+  production: true,
   urlFB: 'https://firebasestorage.googleapis.com/v0/b/',
   tokenFB: '',
-  appName: 'firebase-app.appspot.com/o/',
+  appName: '',
 };
