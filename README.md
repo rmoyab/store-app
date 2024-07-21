@@ -1,27 +1,37 @@
-# StoreApp
+# Store App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+Store app is a web application designed for purchasing and managing video games. It provides a user-friendly interface for browsing games, adding them to cart, viewing by category, user registration, login, and administration capabilities.
 
-## Development server
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/q17vlg25axke1tefopbx.jpg" alt="Game Store Cart" width="800">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Browse and Purchase Games: Explore a wide selection of games and add them to your cart.
+- View by Category: Filter games by categories such as action, adventure, Horror, etc.
+- User Registration and Authentication: Register as a new user and securely log in to manage your profile and purchases.
+- Admin Dashboard: Manage user accounts.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/gjzj49almogexsj1mpks.jpg" alt="Game Store Cart" width="800">
 
-## Build
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/fhr4fudp8zkdqt3kbraz.jpg" alt="Game Store Cart" width="800">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/e4y60ashkhcw0bnkv1c5.jpg" alt="Game Store Cart" width="800">
 
-## Running unit tests
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/f4tq7n1ebpfivxbneeif.jpg" alt="Game Store Cart" width="800">
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
 
-## Running end-to-end tests
+To use this project locally, follow these steps:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository: `git clone https://github.com/darsay8/store-app.git`
+2. Install dependencies: `yarn`
+3. Run `yarn start` or `ng serve`
+4. Navigate to http://localhost:4200/ in your web browser.
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Here's how you can use this project:
+
+1. User Registration/Login: Create a new account or log in to manage your profile.
+2. Explore Games: Browse through the list of games categorized by genre.
+3. Add to Cart: Select games and add them to your cart for checkout.
