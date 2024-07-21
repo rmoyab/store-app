@@ -2,7 +2,12 @@
 
 Store app is a web application designed for purchasing and managing video games. It provides a user-friendly interface for browsing games, adding them to cart, viewing by category, user registration, login, and administration capabilities.
 
-<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/q17vlg25axke1tefopbx.jpg" alt="Game Store Cart" width="800">
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/q17vlg25axke1tefopbx.jpg" alt="Game Store Home" width="830">
+
+## Stack
+
+- Angular v18: Frontend framework for building the user interface.
+- Bootstrap v5: UI toolkit for responsive web design.
 
 ## Features
 
@@ -11,13 +16,13 @@ Store app is a web application designed for purchasing and managing video games.
 - User Registration and Authentication: Register as a new user and securely log in to manage your profile and purchases.
 - Admin Dashboard: Manage user accounts.
 
-<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/gjzj49almogexsj1mpks.jpg" alt="Game Store Cart" width="800">
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/gjzj49almogexsj1mpks.jpg" alt="Game Store Categories" width="830">
 
-<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/fhr4fudp8zkdqt3kbraz.jpg" alt="Game Store Cart" width="800">
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/fhr4fudp8zkdqt3kbraz.jpg" alt="Game Store Games" width="830">
 
-<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/e4y60ashkhcw0bnkv1c5.jpg" alt="Game Store Cart" width="800">
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/e4y60ashkhcw0bnkv1c5.jpg" alt="Game Store Admin" width="830">
 
-<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/f4tq7n1ebpfivxbneeif.jpg" alt="Game Store Cart" width="800">
+<img src="https://res.cloudinary.com/dtfzj5caw/image/upload/v1721529725/github-repos/savage_games-store-app/f4tq7n1ebpfivxbneeif.jpg" alt="Game Store Cart" width="830">
 
 ## Installation
 
