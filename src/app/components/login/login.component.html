@@ -6,7 +6,7 @@
         <form id="loginForm" [formGroup]="loginForm" (submit)="submitForm()">
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" formControlName="email">
+            <input type="email" class="form-control" formControlName="email" (input)="clearErrorMessage()">
             <div
               *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
               class="form-error">
@@ -17,7 +17,7 @@
 
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" formControlName="password">
+            <input type="password" class="form-control" formControlName="password" (input)="clearErrorMessage()">
             <div
               *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
               class="form-error">
@@ -25,6 +25,10 @@
               <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.
               </div>
             </div>
+          </div>
+
+          <div *ngIf="badCredentialsMessage" class="alert alert-danger">
+            {{ badCredentialsMessage }}
           </div>
 
           <button type="submit" class="btn btn-primary">Login</button>

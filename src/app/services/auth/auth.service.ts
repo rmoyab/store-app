@@ -3,8 +3,7 @@ import { StorageService } from '../storage/storage.service';
 import { Router } from '@angular/router';
 import { UserService } from '../user/user.service';
 import { User } from '../../models/models';
-import { is } from 'date-fns/locale';
-import { map } from 'rxjs';
+import { Observable } from 'rxjs';
 
 /**
  * @description
@@ -70,32 +69,35 @@ export class AuthService {
    * @returns Returns true if login successful, otherwise false.
    */
 
-  loginUser(email: string, password: string): boolean {
-    this.userService.getUsers().subscribe(
-      (users: User[]) => {
-        const user = users.find(
-          (u) => u.email === email && u.password === password
-        );
-        if (user) {
-          const { id, username, email, birthDate, isAdmin } = user;
-          this.storageService.setItem('currentUser', {
-            id,
-            username,
-            email,
-            birthDate,
-            isAdmin,
-          });
-          return true;
-        } else {
-          return false;
+  loginUser(email: string, password: string): Observable<boolean> {
+    return new Observable<boolean>((observer) => {
+      this.userService.getUsers().subscribe(
+        (users: User[]) => {
+          const user = users.find(
+            (u) => u.email === email && u.password === password
+          );
+          if (user) {
+            const { id, username, email, birthDate, isAdmin } = user;
+            this.storageService.setItem('currentUser', {
+              id,
+              username,
+              email,
+              birthDate,
+              isAdmin,
+            });
+            observer.next(true);
+          } else {
+            observer.next(false);
+          }
+          observer.complete();
+        },
+        (error) => {
+          console.error('Error fetching users', error);
+          observer.next(false);
+          observer.complete();
         }
-      },
-      (error) => {
-        console.error('Error fetching users', error);
-        return false;
-      }
-    );
-    return false;
+      );
+    });
   }
 
   /**

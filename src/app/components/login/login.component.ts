@@ -18,6 +18,7 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  badCredentialsMessage: string = '';
   // users: any[] = [];
 
   constructor(
@@ -37,11 +38,30 @@ export class LoginComponent implements OnInit {
   submitForm(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      this.authService.loginUser(email, password);
-      this.router.navigate(['/home']);
+      this.authService.loginUser(email, password).subscribe(
+        (isLoggedIn) => {
+          if (isLoggedIn) {
+            this.router.navigate(['/home']);
+            this.badCredentialsMessage = '';
+          } else {
+            this.badCredentialsMessage =
+              'Invalid credentials. Please try again.';
+            console.log('Login failed: Invalid credentials');
+          }
+        },
+        (error) => {
+          console.error('Login error:', error);
+          this.badCredentialsMessage =
+            'An error occurred during login. Please try again later.';
+        }
+      );
     } else {
       this.markFormGroupTouched(this.loginForm);
     }
+  }
+
+  clearErrorMessage() {
+    this.badCredentialsMessage = '';
   }
 
   markFormGroupTouched(formGroup: FormGroup): void {
