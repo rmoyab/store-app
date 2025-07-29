@@ -46,14 +46,12 @@ export class AuthService {
         const usersForSave = { data: { users } };
         this.userService.addUser(usersForSave).subscribe(
           () => {
-            this.loginUser(email, password);
+            this.loginUser(email, password).subscribe();
           },
           (error) => {
-            console.error('Error at register:', error);
+            console.error('Error during registration:', error);
           }
         );
-
-        // this.storageService.setItem('users', users);
       },
       (error) => {
         console.error('Error getting users:', error);
